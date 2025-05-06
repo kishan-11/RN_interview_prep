@@ -9,6 +9,7 @@ import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -22,12 +23,19 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        <Stack>
+          <Stack.Screen name="index" options={{ headerTitle: "Projects" }} />
+          <Stack.Screen name="timer" options={{ headerTitle: "Timer" }} />
+          <Stack.Screen
+            name="stopwatch"
+            options={{ headerTitle: "Stopwatch" }}
+          />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+        <StatusBar style="auto" />
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }
