@@ -32,6 +32,14 @@ export default function RootLayout() {
             name="stopwatch"
             options={{ headerTitle: "Stopwatch" }}
           />
+          <Stack.Screen
+            name="folderStructure"
+            options={{ headerTitle: "Folder structure" }}
+          />
+          <Stack.Screen
+            name="toastContainer"
+            options={{ headerTitle: "Toast Container" }}
+          />
           <Stack.Screen name="+not-found" />
         </Stack>
         <StatusBar style="auto" />

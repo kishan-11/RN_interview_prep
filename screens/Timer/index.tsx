@@ -109,6 +109,7 @@ const TimerScreen = (props: Props) => {
             <ThemedText>{hour < 9 ? `0${hour}` : hour}</ThemedText>
           ) : (
             <ThemedInput
+              textAlign="center"
               inputMode="numeric"
               maxLength={2}
               value={hour ? hour.toString() : ""}
@@ -123,6 +124,7 @@ const TimerScreen = (props: Props) => {
             <ThemedText>{minuit < 9 ? `0${minuit}` : minuit}</ThemedText>
           ) : (
             <ThemedInput
+              textAlign="center"
               inputMode="numeric"
               maxLength={2}
               value={minuit ? minuit.toString() : ""}
@@ -137,6 +139,7 @@ const TimerScreen = (props: Props) => {
             <ThemedText>{second < 9 ? `0${second}` : second}</ThemedText>
           ) : (
             <ThemedInput
+              textAlign="center"
               inputMode="numeric"
               maxLength={2}
               placeholder="SS"

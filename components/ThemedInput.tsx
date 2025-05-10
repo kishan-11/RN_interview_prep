@@ -19,7 +19,6 @@ export function ThemedInput({
 
   return (
     <TextInput
-      textAlign="center"
       placeholderTextColor={`${color}60`}
       style={[
         styles.input,
