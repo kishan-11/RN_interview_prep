@@ -147,7 +147,7 @@ const Toast = ({
         <Image
           resizeMode={"contain"}
           style={styles.closeIcon}
-          source={require("../../assets/close.png")}
+          source={require("@/assets/images/close.png")}
         />
       </Pressable>
     </View>

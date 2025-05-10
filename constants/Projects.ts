@@ -2,6 +2,7 @@ export type PathName =
   | "/"
   | "/timer"
   | "/stopwatch"
+  | "/wordle"
   | "/folderStructure"
   | "/toastContainer";
 
@@ -23,5 +24,9 @@ export const PROJECT_LIST: ProjectType[] = [
   {
     name: "Toast Container",
     route: "/toastContainer",
+  },
+  {
+    name: "Wordle",
+    route: "/wordle",
   },
 ];

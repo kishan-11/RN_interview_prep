@@ -33,7 +33,6 @@ const ChildComp = () => {
       duration: TOAST_DURATION.MEDIUM,
       textStyle: { color: "red" },
       iconStyle: { tintColor: "red" },
-      icon: require("../assets/check.png"),
     });
   };
 

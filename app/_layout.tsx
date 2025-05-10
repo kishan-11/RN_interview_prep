@@ -28,6 +28,7 @@ export default function RootLayout() {
         <Stack>
           <Stack.Screen name="index" options={{ headerTitle: "Projects" }} />
           <Stack.Screen name="timer" options={{ headerTitle: "Timer" }} />
+          <Stack.Screen name="wordle" options={{ headerTitle: "Wordle" }} />
           <Stack.Screen
             name="stopwatch"
             options={{ headerTitle: "Stopwatch" }}
