@@ -1,19 +1,26 @@
 export enum TOAST_TYPE {
-  INFO = "info",
   SUCCESS = "success",
-  FAILED = "failed",
+  ERROR = "error",
   WARNING = "warning",
+  INFO = "info",
 }
 
 export enum TOAST_DURATION {
-  SHORT = 800,
-  MEDIUM = 1500,
-  LONG = 2000,
+  SHORT = 2000,
+  MEDIUM = 3000,
+  LONG = 4000,
+  EXTRA_LONG = 15000,
 }
 
 export type ToastItem = {
-  title: string;
+  id?: string;
+  message: string;
+  subText?: string;
+  icon?: number;
   type?: TOAST_TYPE;
   duration?: TOAST_DURATION;
-  id?: string;
+  containerStyle?: object;
+  textStyle?: object;
+  iconStyle?: object;
+  subTextStyle?: object;
 };
