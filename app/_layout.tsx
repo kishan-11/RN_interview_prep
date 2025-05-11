@@ -41,6 +41,10 @@ export default function RootLayout() {
             name="toastContainer"
             options={{ headerTitle: "Toast Container" }}
           />
+          <Stack.Screen
+            name="generatePassword"
+            options={{ headerTitle: "Password Generator" }}
+          />
           <Stack.Screen name="+not-found" />
         </Stack>
         <StatusBar style="auto" />

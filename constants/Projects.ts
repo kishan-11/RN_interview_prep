@@ -4,7 +4,8 @@ export type PathName =
   | "/stopwatch"
   | "/wordle"
   | "/folderStructure"
-  | "/toastContainer";
+  | "/toastContainer"
+  | "/generatePassword";
 
 export type ProjectType = { name: string; route: PathName };
 
@@ -28,5 +29,9 @@ export const PROJECT_LIST: ProjectType[] = [
   {
     name: "Wordle",
     route: "/wordle",
+  },
+  {
+    name: "Password Generator",
+    route: "/generatePassword",
   },
 ];

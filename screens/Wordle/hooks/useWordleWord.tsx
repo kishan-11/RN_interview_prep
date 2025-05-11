@@ -1,18 +1,25 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const FallbackWords = [
-  "expel",
-  "scuzz",
-  "pages",
-  "jukus",
-  "talon",
-  "saran",
-  "paste",
-  "lamer",
-  "widow",
-  "surgy",
+  "ALBUM",
+  "HINGE",
+  "MONEY",
+  "SCRAP",
+  "GAMER",
+  "GLASS",
+  "SCOUR",
+  "BEING",
+  "DELVE",
+  "YIELD",
+  "METAL",
+  "TIPSY",
+  "SLUNG",
+  "FARCE",
+  "GECKO",
+  "SHINE",
 ];
 export const useWordleWord = () => {
+  const wordsList = useRef<string[]>([]);
   const [word, setWord] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
@@ -21,25 +28,32 @@ export const useWordleWord = () => {
   }, []);
 
   const getWord = useCallback(async () => {
-    try {
-      setIsLoading(true);
-      const res = await fetch(
-        "https://random-word-api.herokuapp.com/word?length=5"
+    if (wordsList.current?.length > 0) {
+      setWord(
+        wordsList.current[Math.floor(Math.random() * wordsList.current.length)]
       );
-      const response = await res.json();
-      if (response?.[0]) {
-        setWord(response[0].toUpperCase());
-      } else {
-        setWord(FallbackWords[Math.floor(Math.random() * 10)].toUpperCase());
+    } else {
+      try {
+        setIsLoading(true);
+        const res = await fetch(
+          "https://api.frontendexpert.io/api/fe/wordle-words"
+        );
+        const response = await res.json();
+        wordsList.current = response ?? FallbackWords;
+      } catch (err) {
+        wordsList.current = FallbackWords;
+      } finally {
+        setIsLoading(false);
+        setWord(
+          wordsList.current[
+            Math.floor(Math.random() * wordsList.current.length)
+          ]
+        );
       }
-    } catch (err) {
-      setWord(FallbackWords[Math.floor(Math.random() * 10)].toUpperCase());
-    } finally {
-      setIsLoading(false);
     }
   }, []);
 
-  console.log("word =>", word);
+  console.log(word);
 
   return { word, isLoading, getWord };
 };
